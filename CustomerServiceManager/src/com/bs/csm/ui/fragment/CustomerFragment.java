@@ -121,6 +121,7 @@ public class CustomerFragment extends Fragment {
 
 	private void queryCustomers(String query) {
 		customerList = customerTable.query(query);
+		Collections.sort(customerList, mComparator);
 		mSortAdapter.updateListView(customerList);
 	}
 
