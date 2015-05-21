@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:track="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res/com.bs.csm"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionbar_height" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/actionbar_bg_color"
+            android:orientation="horizontal" >
+
+            <com.bs.csm.widget.ColorTrackView
+                android:id="@+id/ctv_user"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="40dp"
+                android:layout_weight="1"
+                app:progress="1"
+                app:text="个人"
+                app:text_change_color="@color/change_color"
+                app:text_origin_color="@color/origin_color"
+                app:text_size="16sp" />
+
+            <com.bs.csm.widget.ColorTrackView
+                android:id="@+id/ctv_customer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                app:text="客户"
+                app:text_change_color="@color/change_color"
+                app:text_origin_color="@color/origin_color"
+                app:text_size="16sp" />
+
+            <com.bs.csm.widget.ColorTrackView
+                android:id="@+id/ctv_service"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="40dp"
+                android:layout_weight="1"
+                app:text="服务"
+                app:text_change_color="@color/change_color"
+                app:text_origin_color="@color/origin_color"
+                app:text_size="16sp" />
+        </LinearLayout>
+
+        <View
+            style="@style/actionbar_horizontal_divider"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+"-//mybatis.org//DTD MyBatis Generator Configuration 
+1.0//EN"
+"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd"
+>
+<generatorConfiguration>
+	<!-- 制定mysql的驱动包的路径 -->
+	<classPathEntry
+		location="D:/WorkSpaces/maven/repo/mysql/mysql-connector-java/5.1.24/mysql-connector-java-5.1.24.jar" />
+	<!-- 配置数据源和生成的代码所存放的位置 -->
+	<context id="context1">
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.5.202:3306/test" userId="root"
+			password="root" />
+		<!-- 所生成的实体类的位置默认资源包src -->
+		<javaModelGenerator targetPackage="bs.cm.model"
+			targetProject="bs.cm/src/main/java" />
+		<!-- 所生成的sqlMap的影射文件的位置,默认资源包src -->
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject="bs.cm/src/main/resources" />
+		<javaClientGenerator targetPackage="bs.cm.mapper"
+			type="XMLMAPPER" targetProject="bs.cm/src/main/java" />
+
+
+		<!-- 为哪些表生成代码 tableName:表名 schema:不用填写 -->
+
+		<table schema="" tableName="customer" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+		</table>
+		<table schema="" tableName="user" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+		</table>
+		<table schema="" tableName="service" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+		</table>
+		<table schema="" tableName="csrelation" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+		</table>
+	</context>
+</generatorConfiguration>

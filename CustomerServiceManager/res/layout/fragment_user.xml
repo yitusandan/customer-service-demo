@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="17dp" >
+
+        <Button
+            android:id="@+id/btnSync"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:padding="10dp"
+            android:text="立即同步" />
+
+        <RelativeLayout
+            android:id="@+id/accountStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:enabled="false"
+                android:padding="10dp"
+                android:text="状态：未知" />
+
+            <CheckBox
+                android:id="@+id/cbIsSyncable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/status"
+                android:enabled="false"
+                android:text="是否变动" />
+
+            <CheckBox
+                android:id="@+id/cbAutoSync"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/status"
+                android:enabled="false"
+                android:text="自动同步" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

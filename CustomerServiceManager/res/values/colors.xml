@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+    
+    <color name="gray_05">#12121205</color>
+    <color name="gray_07">#1212120F</color>
+    
+    <color name="origin_color">#ff000000</color>
+    <color name="change_color">#ffff0000</color>
+    
+    <color name="actionbar_bg_color">#efeff0</color>
+    <color name="bg_color">#f8f8f8</color>
+</resources>
