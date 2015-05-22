@@ -9,7 +9,7 @@ public class Const {
 	public static final String UPDATE_SERVICE_ACTION = "com.bs.csm.update_service";
 	public static final String DELETE_SERVICE_ACTION = "com.bs.csm.delete_service";
 
-	public static final String HOST = "http://192.168.11.100:8080/bs.cm/mobile/";
+	public static final String HOST = "http://192.168.5.106:8080/bs.cm/mobile/";
 //	public static final String HOST = "http://10.0.2.2:8080/bs.cm/mobile/";
 
 	public static final String URL_LOGIN = HOST + "login.do";

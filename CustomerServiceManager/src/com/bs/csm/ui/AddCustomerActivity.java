@@ -19,6 +19,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -128,6 +129,7 @@ public class AddCustomerActivity extends Activity implements
 						selectedList.clear();
 						for (int i = 0; i < boolArr.length; i++) {
 							if (boolArr[i]) {
+								Log.d("tag", i + " : " + boolArr[i]);
 								selectedList.add(serviceList.get(i));
 							}
 						}

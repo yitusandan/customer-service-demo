@@ -210,8 +210,8 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="备注" />
 
@@ -220,35 +220,36 @@
                 <EditText
                     android:id="@+id/et_remark"
                     android:layout_width="0dp"
-                    android:inputType="textMultiLine"
-                    android:gravity="top|left"
-                    android:minLines="3"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="2"
                     android:background="@null"
+                    android:gravity="top|left"
                     android:hint="请输入备注"
+                    android:inputType="textMultiLine"
+                    android:minLines="3"
                     android:singleLine="true"
                     android:textSize="14sp" />
             </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="绑定服务"
-                android:textSize="14sp" />
-
-            <View style="@style/horizontal_divider" />
-
-            <ListView
-                android:id="@+id/lv_selected"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp" />
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="5dp"
+        android:text="绑定服务"
+        android:textSize="16sp" />
+
+    <View style="@style/horizontal_divider" />
+
+    <ListView
+        android:id="@+id/lv_selected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
     <View style="@style/horizontal_divider" />
 

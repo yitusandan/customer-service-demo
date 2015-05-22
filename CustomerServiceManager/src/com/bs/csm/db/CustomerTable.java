@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 
+import com.bs.csm.Const;
 import com.bs.csm.db.provider.CustomerContract;
 import com.bs.csm.model.Customer;
 
@@ -75,8 +76,8 @@ public class CustomerTable {
 			cursor = db.query(TABLE_NAME, null, null, null, null, null, null);
 		} else {
 			str = str + "%";
-			cursor = db.query(TABLE_NAME, null, COLUMN_NAME + " like ? or "
-					+ COLUMN_PINYIN + " like ?", new String[] { str, str },
+			cursor = db.query(TABLE_NAME, null,COLUMN_USERID + " = ? and" + COLUMN_NAME + " like ? or "
+					+ COLUMN_PINYIN + " like ?", new String[] { String.valueOf(Const.userId),str, str },
 					null, null, null);
 		}
 		List<Customer> list = new ArrayList<Customer>();

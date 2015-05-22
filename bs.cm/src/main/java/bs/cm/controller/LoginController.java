@@ -89,19 +89,20 @@ public class LoginController extends ActionSupport {
 
 		JsonResult jsonResult = new JsonResult();
 
-		if (StringUtils.isEmpty(username)) {
-			return;
-		}
-		if (StringUtils.isEmpty(accountname)) {
-			return;
-		}
-		if (StringUtils.isEmpty(password)) {
-			return;
-		}
+//		if (StringUtils.isEmpty(username)) {
+//			return;
+//		}
+//		if (StringUtils.isEmpty(accountname)) {
+//			return;
+//		}
+//		if (StringUtils.isEmpty(password)) {
+//			return;
+//		}
 
 		User user = userService.getUserByAccountname(accountname);
 		if (user != null) {
 			jsonResult.setErr(1, "账号已存在，请直接登陆");
+			response.getWriter().write(jsonResult.toJson());
 			return;
 		}
 

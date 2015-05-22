@@ -8,6 +8,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.bs.csm.Const;
 import com.bs.csm.model.Service;
 
 public class ServiceTable {
@@ -51,7 +52,9 @@ public class ServiceTable {
 
 	public List<Service> queryAll() {
 		SQLiteDatabase db = mDBHelper.getWritableDatabase();
-		Cursor cursor = db.rawQuery("select * from " + TABLE_NAME, null);
+		Cursor cursor = db.rawQuery("select * from " + TABLE_NAME + " where "
+				+ COLUMN_USERID + " = ?",
+				new String[] { String.valueOf(Const.userId) });
 		List<Service> serviceList = new ArrayList<Service>();
 		while (cursor.moveToNext()) {
 			Service service = getService(cursor);
@@ -65,11 +68,11 @@ public class ServiceTable {
 		SQLiteDatabase db = mDBHelper.getWritableDatabase();
 		List<Service> list = new ArrayList<Service>();
 		Cursor cursor = db.rawQuery("select * from " + TABLE_NAME + " where "
-				+ COLUMN_ID + " not in (select "
-				+ CSRelationTable.COLUMN_SERVICE_ID + " from "
-				+ CSRelationTable.TABLE_NAME + " where "
-				+ CSRelationTable.COLUMN_CUSTOMER_ID + " = ?)",
-				new String[] { String.valueOf(customerId) });
+				+ CSRelationTable.COLUMN_USERID + " = ? and " + COLUMN_ID
+				+ " not in (select " + CSRelationTable.COLUMN_SERVICE_ID
+				+ " from " + CSRelationTable.TABLE_NAME + " where "
+				+ CSRelationTable.COLUMN_CUSTOMER_ID + " = ?)", new String[] {
+				String.valueOf(Const.userId), String.valueOf(customerId) });
 		while (cursor.moveToNext()) {
 			Service service = getService(cursor);
 			list.add(service);
