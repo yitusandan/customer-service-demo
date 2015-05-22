@@ -81,12 +81,10 @@ public class CSRelationTable {
 		db.beginTransaction();
 		try {
 			for (Long l : list) {
-				db.delete(
-						TABLE_NAME,
-						COLUMN_CUSTOMER_ID + " = ? and " + COLUMN_SERVICE_ID
-								+ " = ?",
-						new String[] { String.valueOf(customerId),
-								String.valueOf(l) });
+				db.delete(TABLE_NAME, COLUMN_USERID + " = ? and "
+						+ COLUMN_CUSTOMER_ID + " = ? and " + COLUMN_SERVICE_ID
+						+ " = ?", new String[] { String.valueOf(Const.userId),
+						String.valueOf(customerId), String.valueOf(l) });
 			}
 			db.setTransactionSuccessful();
 		} finally {
@@ -96,8 +94,12 @@ public class CSRelationTable {
 
 	public List<CSRelation> queryByCustomerId(long customerId) {
 		SQLiteDatabase db = mDBHelper.getWritableDatabase();
-		Cursor cursor = db.query(TABLE_NAME, null, COLUMN_CUSTOMER_ID + " = ?",
-				new String[] { String.valueOf(customerId) }, null, null, null);
+		Cursor cursor = db.query(
+				TABLE_NAME,
+				null,
+				COLUMN_USERID + " = ? and " + COLUMN_CUSTOMER_ID + " = ?",
+				new String[] { String.valueOf(Const.userId),
+						String.valueOf(customerId) }, null, null, null);
 		List<CSRelation> relationList = new ArrayList<CSRelation>();
 		while (cursor.moveToNext()) {
 			CSRelation csRelation = getRelation(cursor);
@@ -114,18 +116,25 @@ public class CSRelationTable {
 				.getColumnIndex(COLUMN_CUSTOMER_ID)));
 		relation.setServiceid(cursor.getLong(cursor
 				.getColumnIndex(COLUMN_SERVICE_ID)));
+		relation.setUserid(cursor.getInt(cursor.getColumnIndex(COLUMN_USERID)));
 		return relation;
 	}
 
 	public int deleteByCustomerId(long customerId) {
 		SQLiteDatabase db = mDBHelper.getWritableDatabase();
-		return db.delete(TABLE_NAME, COLUMN_CUSTOMER_ID + " = ? ",
-				new String[] { String.valueOf(customerId) });
+		return db.delete(
+				TABLE_NAME,
+				COLUMN_USERID + " = ? and " + COLUMN_CUSTOMER_ID + " = ? ",
+				new String[] { String.valueOf(Const.userId),
+						String.valueOf(customerId) });
 	}
 
 	public int deleteByServiceId(long serviceId) {
 		SQLiteDatabase db = mDBHelper.getWritableDatabase();
-		return db.delete(TABLE_NAME, COLUMN_SERVICE_ID + " = ? ",
-				new String[] { String.valueOf(serviceId) });
+		return db.delete(
+				TABLE_NAME,
+				COLUMN_USERID + " = ? and " + COLUMN_SERVICE_ID + " = ? ",
+				new String[] { String.valueOf(Const.userId),
+						String.valueOf(serviceId) });
 	}
 }

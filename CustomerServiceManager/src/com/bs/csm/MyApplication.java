@@ -3,6 +3,7 @@ package com.bs.csm;
 import android.app.Application;
 
 import com.bs.csm.net.OkHttp;
+import com.bs.csm.util.PrefUtils;
 
 public class MyApplication extends Application {
 
@@ -16,6 +17,7 @@ public class MyApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		instance = this;
+		Const.userId = PrefUtils.getUserId();
 		OkHttp.init(getApplicationContext());
 	}
 

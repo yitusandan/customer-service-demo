@@ -35,9 +35,10 @@ public class CustomerTable {
 			+ COLUMN_INITIALS + " text" + ");";
 
 	public static final String CREATE_INDEX = "create index mobile_index on customer(mobile)";
-	
-	public static final String DROP_TABLE = "drop table if exists " + TABLE_NAME;
-	
+
+	public static final String DROP_TABLE = "drop table if exists "
+			+ TABLE_NAME;
+
 	private final DBHelper mDBHelper;
 
 	public CustomerTable(Context context) {
@@ -73,11 +74,14 @@ public class CustomerTable {
 		SQLiteDatabase db = mDBHelper.getWritableDatabase();
 		Cursor cursor = null;
 		if (TextUtils.isEmpty(str)) {
-			cursor = db.query(TABLE_NAME, null, null, null, null, null, null);
+			cursor = db.query(TABLE_NAME, null, COLUMN_USERID + " = ?",
+					new String[] { String.valueOf(Const.userId) }, null, null,
+					null);
 		} else {
 			str = str + "%";
-			cursor = db.query(TABLE_NAME, null,COLUMN_USERID + " = ? and" + COLUMN_NAME + " like ? or "
-					+ COLUMN_PINYIN + " like ?", new String[] { String.valueOf(Const.userId),str, str },
+			cursor = db.query(TABLE_NAME, null, COLUMN_USERID + " = ? and"
+					+ COLUMN_NAME + " like ? or " + COLUMN_PINYIN + " like ?",
+					new String[] { String.valueOf(Const.userId), str, str },
 					null, null, null);
 		}
 		List<Customer> list = new ArrayList<Customer>();

@@ -195,7 +195,9 @@ public class UserFragment extends Fragment {
 
 	private void refreshSyncStatus() {
 		String status;
-
+		if (mConnectedAccount == null) {
+			
+		}
 		if (ContentResolver.isSyncActive(mConnectedAccount,
 				Const.CONTENT_AUTHORITY))
 //			status = "Status: Syncing..";

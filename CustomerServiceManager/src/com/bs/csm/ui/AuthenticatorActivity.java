@@ -19,6 +19,7 @@ import com.bs.csm.net.OkHttp;
 import com.bs.csm.net.model.UserRes;
 import com.bs.csm.util.AccountGeneral;
 import com.bs.csm.util.MD5;
+import com.bs.csm.util.PrefUtils;
 import com.bs.csm.util.Utils;
 import com.google.gson.Gson;
 import com.squareup.okhttp.Callback;
@@ -168,6 +169,7 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity {
 				intent.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE));
 		int userId = intent.getIntExtra("userId", 0);
 		Const.userId = userId;
+		PrefUtils.setUserId(userId);
 		Log.d("finishLogin tag ", "userId = " + userId);
 		mAccountManager.setUserData(account,
 				AccountGeneral.USERDATA_USER_OBJ_ID, String.valueOf(userId));
