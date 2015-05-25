@@ -92,6 +92,7 @@ public class UpdateServiceActivity extends Activity implements
 		service.setName(name);
 		service.setPrice(price);
 		service.setDesc(desc);
+		service.setUserid(Const.userId);
 
 		ServiceTable serviceTable = new ServiceTable(this);
 		serviceTable.update(service);

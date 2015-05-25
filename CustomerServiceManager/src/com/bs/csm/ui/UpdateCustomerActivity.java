@@ -218,6 +218,7 @@ public class UpdateCustomerActivity extends Activity implements
 		customer.setQq(qq);
 		customer.setAddress(address);
 		customer.setRemark(remark);
+		customer.setUserid(Const.userId);
 		CharacterParser parser = new CharacterParser();
 		String pinYin = parser.getSelling(name);
 		customer.setPinyin(pinYin);
